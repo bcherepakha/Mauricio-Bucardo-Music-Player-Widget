@@ -92,3 +92,109 @@ let mode = $slider.classList.contains(BIG_MODE_CLASS_NAME)
         ? MODES.BIG
         : MODES.SMALL;
 let currentSongIndex = 0;
+
+clearPlaylist();
+
+const $songs = songs.map(renderSong);
+
+$playlist.append(...$songs);
+
+clearSliderImagesBody();
+
+const $images = songs.map(renderImage);
+
+$sliderImagesBody.append(...$images);
+
+$broadcast.addEventListener('click', tooglePlayerMode);
+$title.addEventListener('click', tooglePlayerMode);
+$author.addEventListener('click', tooglePlayerMode);
+
+render();
+
+// additional functions
+
+function tooglePlayerMode() {
+    if (mode === MODES.BIG) {
+        mode = MODES.SMALL;
+    } else {
+        mode = MODES.BIG;
+    }
+
+    render();
+}
+
+function clearSliderImagesBody() {
+    $sliderImagesBody.innerText = '';
+}
+
+function clearPlaylist() {
+    $playlist.innerText = '';
+}
+
+function renderSong(song) {
+    const { title, author, img, duration } = song;
+    const $li = document.createElement('li');
+    const ss = duration % 60;
+    const mm = Math.floor(duration / 60);
+
+    $li.className = 'music-player__song';
+    $li.innerHTML = `
+        <img
+            alt=""
+            src="songs/${img}"
+            class="music-player__song-img">
+        <div class="music-player__song-title music-player__title">
+            ${title}
+        </div>
+        <div class="music-player__song-author music-player__author">
+            ${author}
+        </div>
+        <div class="music-player__song-duration">
+            ${mm.toString().padStart(2, '0')}:${ss.toString().padStart(2, '0')}
+        </div>
+    `;
+
+    return $li;
+}
+
+function renderImage(song) {
+    const $img = document.createElement('img');
+
+    $img.src = `songs/${song.img}`;
+    $img.className = 'music-player__slider-image';
+    $img.alt = '';
+
+    return $img;
+}
+
+function render() {
+    $images.forEach(function ($img, idx) {
+        if (idx < currentSongIndex) {
+            $img.classList.add(BACK_IMAGE_CLASS);
+            $img.classList.remove(NEXT_IMAGE_CLASS);
+            $img.classList.remove(ACTIVE_IMAGE_CLASS);
+        } else if (idx === currentSongIndex) {
+            $img.classList.remove(BACK_IMAGE_CLASS);
+            $img.classList.remove(NEXT_IMAGE_CLASS);
+            $img.classList.add(ACTIVE_IMAGE_CLASS);
+        } else if (idx > currentSongIndex) {
+            $img.classList.remove(BACK_IMAGE_CLASS);
+            $img.classList.add(NEXT_IMAGE_CLASS);
+            $img.classList.remove(ACTIVE_IMAGE_CLASS);
+        }
+    });
+
+    $songs.forEach(function ($song, idx) {
+        if (idx === currentSongIndex) {
+            $song.classList.add(ACTIVE_SONG_CLASS);
+        } else {
+            $song.classList.remove(ACTIVE_SONG_CLASS);
+        }
+    });
+
+    if (mode === MODES.BIG) {
+        $slider.classList.add(BIG_MODE_CLASS_NAME);
+    } else {
+        $slider.classList.remove(BIG_MODE_CLASS_NAME);
+    }
+}

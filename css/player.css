@@ -160,7 +160,7 @@ body {
     transition: flex var(--player-change-duration) var(--timeline-change-function);
 }
 
-/* .music-player__slider::after {
+.music-player__slider::after {
     position: absolute;
     inset: 0;
     content: "";
@@ -170,9 +170,9 @@ body {
     box-shadow: var(--box-shadow);
     opacity: var(--shadow-opacity);
     transition: var(--player-change-duration) opacity;
-} */
+}
 
-/* .music-player__broadcast {
+.music-player__broadcast {
     background: rgba(0, 0, 0, .5);
     color: var(--bg-progress-bar);
 
@@ -196,4 +196,4 @@ body {
 
     transform: scale(0);
     transition: transform var(--player-change-duration) var(--image-change-function);
-} */
+}

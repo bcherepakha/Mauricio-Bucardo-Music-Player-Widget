@@ -127,7 +127,7 @@ body {
     --player-small-height: 7.125em;
 
     font-family: 'Nunito', sans-serif;
-    font-size: 1.2vw;
+    font-size: 2vw;
     line-height: 1.3;
     color: var(--main-text);
 
@@ -147,7 +147,12 @@ body {
 /* SAMLE CODE HEARE */
 
 .music-player__playlist {
-    /* padding: --offset-cover */
+    list-style: none;
+    padding: 0 var(--offset-cover);
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .music-player__song {
@@ -155,22 +160,48 @@ body {
     /* grid margin: --title-margin */
     /* additional padding: --songs-gap */
     /* border: 2px by --border-color */
+    display: grid;
+    grid-template-columns: var(--cover-size) 1fr var(--duration-size);
+    grid-template-areas: "image title title" "image author duration";
+    border-bottom: 2px solid var(--border-color);
+    gap: var(--title-margin);
+    padding: var(--songs-gap) 0;
 }
 
 .music-player__song-img {
     /* border-radius: var(--border-radius); */
+    grid-area: image;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius);
+    justify-self: center;
+    align-self: center;
 }
 
 .music-player__song-title {
+    grid-area: title;
+    justify-self: start;
+    align-self: end;
 }
 
 .music-player__song-author {
+    grid-area: author;
+    justify-self: start;
+    align-self: start;
 }
 
-/* .music-player__title {
+.music-player__song-duration {
+    grid-area: duration;
+    justify-self: start;
+    align-self: start;
+}
+
+.music-player__title {
     font-weight: bold;
     font-size: var(--song-title-fs);
 
+    width: 100%;
+
     white-space: nowrap;
     display: block;
 
@@ -178,9 +209,9 @@ body {
     text-overflow: ellipsis;
 
     text-transform: capitalize;
-} */
+}
 
-/* .music-player__author {
+.music-player__author {
     font-size: var(--song-author-fs);
     font-weight: bold;
     color: var(--accent-text);
@@ -192,14 +223,10 @@ body {
     text-overflow: ellipsis;
 
     text-transform: capitalize;
-} */
+}
 
-/* .music-player__song-duration {
-    grid-area: duration;
-
-    align-self: start;
-
+.music-player__song-duration {
     font-size: var(--song-author-fs);
     font-weight: bold;
     color: var(--accent-text);
-} */
+}
