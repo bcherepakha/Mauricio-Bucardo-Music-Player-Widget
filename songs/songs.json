@@ -1,0 +1,58 @@
+[
+    {
+        "title": "Біля серця",
+        "author": "KOLA",
+        "img": "bilya_serdcya.jpeg",
+        "track": "bilya_serdcya.mp3",
+        "duration": 136
+    },
+    {
+        "title": "Місто весни (feat. Один в каное)",
+        "author": "Океан Ельзи",
+        "img": "misto_vesn.jpeg",
+        "track": "misto_vesn.mp3",
+        "duration": 252
+    },
+    {
+        "title": "Чорне і біле",
+        "author": "Зозуля",
+        "img": "chorne_bile.jpeg",
+        "track": "chorne_bile.mp3",
+        "duration": 227
+    },
+    {
+        "title": "Чути гімн",
+        "author": "Skofka",
+        "img": "chut_gimn.jpeg",
+        "track": "chut_gimn.mp3",
+        "duration": 148
+    },
+    {
+        "title": "В Пустій Кімнаті",
+        "author": "Yaktak, Jerry Heil",
+        "img": "v_pusti_kimnati.jpeg",
+        "track": "v_pusti_kimnati.mp3",
+        "duration": 165
+    },
+    {
+        "title": "Гей, соколи!",
+        "author": "Олександр Пономарьов та Mykhailo Khoma",
+        "img": "gey_sokoly.jpeg",
+        "track": "gey_sokoly.mp3",
+        "duration": 225
+    },
+    {
+        "title": "Три слова",
+        "author": "Kozak System",
+        "img": "tri_slova.jpeg",
+        "track": "tri_slova.mp3",
+        "duration": 240
+    },
+    {
+        "title": "Пісня Сміливих Дівчат",
+        "author": "KAZKA",
+        "img": "pisnya_divchat.jpeg",
+        "track": "pisnya_divchat.mp3",
+        "duration": 186
+    }
+]
